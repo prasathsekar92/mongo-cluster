@@ -1,0 +1,10 @@
+---
+  - name: create Ec2 instance_type
+    key_name: my-key
+    instance_type: t2.micro
+    image: ami-123456
+    wait: yes
+    group: webserver
+    count: 3
+    vpc_subnet_id: subnet-29e63245
+    assign_public_ip: no

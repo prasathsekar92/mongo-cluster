@@ -1,0 +1,5 @@
+---
+repo_name: 'mongo-cluster'
+repo_desc: '/opt/mongo-cluster'
+root_user: 'root'
+branch: 'master'

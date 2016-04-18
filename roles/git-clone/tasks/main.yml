@@ -1,0 +1,24 @@
+---
+
+- name: Update cache
+  apt: name=curl 
+
+- name: install git
+  apt: name=git state=present
+
+- name: create ssh folder
+  file: path=/{{ root_user }}/.ssh state=directory mode=700 owner={{ root_user }} group={{ root_user }}
+
+- name: copy private file from template
+  template: src=my-key
+            dest=/{{ root_user }}/.ssh/id_rsa
+            owner={{ root_user }}
+            group={{ root_user }}
+            mode=0600
+
+- name: Delete exists repo
+  file: dest={{ repo_desc }} state=absent
+
+
+- name: Clone repo from bitbuget
+  git: repo=ssh://git@github.com:prasathsekar92/{{ repo_name }} dest={{ repo_desc }} accept_hostkey=yes update=yes version={{ branch }} 

@@ -1,5 +1,5 @@
 ---
- - name: create Ec2 instance_type
+ - name: create Ec2 instance
    ec2:
     key_name: my-key
     instance_type: t2.micro

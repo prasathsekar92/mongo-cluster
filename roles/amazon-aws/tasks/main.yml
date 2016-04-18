@@ -1,9 +1,9 @@
 ---
  - name: create Ec2 instance
    ec2:
+    image: ami-9abea4fb
     key_name: my-key
     instance_type: t2.micro
-    image: ami-123456
     wait: yes
     group: webserver
     count: 3

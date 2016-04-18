@@ -1,0 +1,11 @@
+- name: INSTALL SOFTWARES
+  hosts: "{{hostname}}"
+  sudo: True
+
+  roles:
+     #- { role: sharedA }
+     #- { role: sharedB }
+     #- { role: configA }
+      - { role: configB }
+     #- { role: configC }
+     #- { role: routingserver }

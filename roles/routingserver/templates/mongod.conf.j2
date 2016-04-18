@@ -1,0 +1,11 @@
+description "Mongos Routing Server"
+
+pre-start script
+    mkdir -p /data/db/mongodb/
+    chown -R mongodb:mongodb /data
+end script
+
+start on startup
+stop on shutdown
+
+exec start-stop-daemon --start --quiet --chuid mongodb --exec  /usr/bin/mongos -- --configdb configA,configB,configC --logpath /data/db/mongodb.log --logappend --pidfilepath /data/db/mongodb/mongos.lock

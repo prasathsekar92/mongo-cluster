@@ -1,0 +1,40 @@
+---
+   - name: Import The Public Key
+     shell: apt-key adv --keyserver hkp://{{mongo_key_server}} --recv {{mongo_id}}
+
+   - name: Echo MongoDB
+     shell: echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/{{mongo_version}} main" > /etc/apt/sources.list.d/mongodb-org-{{ mongo_version }}.list
+   
+   - name: Update
+     apt: update_cache=yes
+
+   - name: Install The MongoDB Packages
+     apt: name=mongodb-org state=present
+
+   - name: Stop Mongodb service
+     service: name=mongod state=stopped
+
+   - name: Change The Default Mongod Configuration File
+     template:
+       src: mongod.conf.j2
+       dest: /etc/mongod.conf
+   
+   - name: Install monit
+     apt: name=monit state=present
+
+   - name: Config Monit to Startup Automatically
+     shell: sed -i '/startup/ c startup=1' /etc/default/monit;
+
+   - name: Change The Default Monit Configuration File
+     template:
+       src: monitrc
+       dest: /etc/monit/monitrc
+
+   - name: Make sure your mounted data drive survives a reboot and is listed in fstab
+     shell: sed -i '$ a /dev/sdf  /mnt/data  xfs  noatime  0  0' /etc/fstab
+
+   - name: Perform a reboot and verify that mongo is running
+     service: name=mongod state=restarted
+
+   - name: monitored with monit
+     shell: monit status

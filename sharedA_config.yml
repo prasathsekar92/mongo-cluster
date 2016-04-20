@@ -1,6 +1,7 @@
 ---
- - hosts: Mongoserver
-   sudo: yes
+  hosts: webservers
+  user: vagrant
+  sudo: yes
 
    roles:
     - { role: sharedA }

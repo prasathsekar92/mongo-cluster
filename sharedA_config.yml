@@ -1,5 +1,5 @@
 ---
- - hosts: Mongo-server
+ - hosts: Mongoserver
    user: root
    gather_facts: True
 

@@ -1,7 +1,7 @@
 ---
- - hosts: localhost
-   connection: local
-   gather_facts: False
+ - hosts: Mongo-server
+   user: root
+   gather_facts: True
 
    roles:
     - { role: sharedA }

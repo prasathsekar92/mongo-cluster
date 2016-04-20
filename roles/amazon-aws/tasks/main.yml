@@ -1,7 +1,7 @@
 ---
  - name: create Ec2 instance
    ec2:
-    region: us-west-2a
+    region: us-west-2
     image: ami-9abea4fb
     key_name: my-key
     instance_type: t2.micro

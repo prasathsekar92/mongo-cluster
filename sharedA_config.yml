@@ -1,5 +1,5 @@
 ---
- - hosts: Mongoserver
+ - hosts: local
    connection: local
    gather_facts: True
 

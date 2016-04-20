@@ -1,5 +1,5 @@
 ec2_keypair: "my-key"
-ec2_security_group: "REDACTED"
+ec2_security_group: "sg-48730d2f"
 ec2_instance_type: "t2.micro"
 ec2_image: "ami-9abea4fb"
 ec2_subnet_ids: "subnet-a9cd27df"

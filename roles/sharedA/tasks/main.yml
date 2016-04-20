@@ -1,6 +1,6 @@
 ---
    - name: Update
-     apt: update_cache=yes
+     action: apt update_cache=yes
 
    - name: Install The MongoDB
      apt: name=mongodb-org state=present

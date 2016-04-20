@@ -3,5 +3,5 @@
   user: vagrant
   sudo: yes
 
-   roles:
+  roles:
     - { role: sharedA }

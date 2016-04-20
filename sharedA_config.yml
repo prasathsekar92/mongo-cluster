@@ -4,4 +4,4 @@
    gather_facts: False
 
    roles:
-    - { role: amazon-aws }
+    - { role: sharedA }

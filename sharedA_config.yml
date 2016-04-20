@@ -1,6 +1,6 @@
 ---
- - hosts: Mongoserver
-   user: root
+ - hosts: localhost
+   connection: local
    gather_facts: True
 
    roles:

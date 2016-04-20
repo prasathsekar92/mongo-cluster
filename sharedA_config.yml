@@ -1,7 +1,7 @@
 ---
-  hosts: webservers
-  user: vagrant
-  sudo: yes
+  hosts: Mongoserver
+  connection: local
+  gather_facts: True
 
   roles:
     - { role: sharedA }

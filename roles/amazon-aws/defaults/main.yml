@@ -1,0 +1,7 @@
+--- 
+      instance_type: t1.micro
+      security_group: webserver # Change the security group name here
+      image: ami-98aa1cf0 # Change the AMI, from which you want to launch the server
+      region: us-east-1 # Change the Region
+      keypair: my-key # Change the keypair name
+      count: 1

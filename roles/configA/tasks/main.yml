@@ -1,12 +1,12 @@
 ---
+   - name: Update
+     apt: update_cache=yes
+     
    - name: Import The Public Key
      shell: apt-key adv --keyserver hkp://{{mongo_key_server}} --recv {{mongo_id}}
 
    - name: Echo MongoDB
      shell: echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/{{mongo_version}} main" > /etc/apt/sources.list.d/mongodb-org-{{ mongo_version }}.list
-   
-   - name: Update
-     apt: update_cache=yes
 
    - name: Install The MongoDB
      apt: name=mongodb-org state=present
